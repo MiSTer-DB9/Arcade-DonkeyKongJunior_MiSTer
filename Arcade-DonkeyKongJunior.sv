@@ -323,8 +323,8 @@ wire	[7:0]		ioctl_din;
 wire [15:0] joy_0_USB, joy_1_USB; // [MiSTer-DB9] renamed for DB9/SNAC8 mux
 // [MiSTer-DB9 BEGIN] - DB9/SNAC8 support
 // CO S2 S1 F1 U D L R
-wire [15:0] joy_0 = joydb_1ena ? (OSD_STATUS ? 16'b0 : {joydb_1[11]|(joydb_1[10]&joydb_1[5]),joydb_1[9],joydb_1[10],joydb_1[4:0]}) : joy_0_USB;
-wire [15:0] joy_1 = joydb_2ena ? (OSD_STATUS ? 16'b0 : {joydb_2[11]|(joydb_2[10]&joydb_2[5]),joydb_2[10],joydb_2[9],joydb_2[4:0]}) : joydb_1ena ? joy_0_USB : joy_1_USB;
+wire [15:0] joy_0 = joydb_1ena ? (OSD_STATUS ? 16'b0 : {joydb_1[11],joydb_1[9],joydb_1[10],joydb_1[4:0]}) : joy_0_USB;
+wire [15:0] joy_1 = joydb_2ena ? (OSD_STATUS ? 16'b0 : {joydb_2[11],joydb_2[10],joydb_2[9],joydb_2[4:0]}) : joydb_1ena ? joy_0_USB : joy_1_USB;
 // [MiSTer-DB9 END]
 wire [21:0] gamma_bus;
 
